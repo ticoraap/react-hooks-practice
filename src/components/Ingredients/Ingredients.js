@@ -72,6 +72,9 @@ const Ingredients = (props) => {
         [sendRequest]
     );
 
+    // functionality 4.4 useMemo
+    // The useMemo hook memoizes the value that the function returns and 
+    // only recomputes when a depencendy changed (array of elements as second argument to useMemo)
     const ingredientList = useMemo(() => {
         return (
             <IngredientList
