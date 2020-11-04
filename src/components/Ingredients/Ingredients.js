@@ -28,16 +28,13 @@ const Ingredients = (props) => {
         sendRequest,
         reqExtra,
         reqIdentifier,
-        clear
+        clear,
     } = useHttp();
 
     useEffect(() => {
-        console.log(`isLoading: ${isLoading}, !error: ${!error}, reqIdentifier: ${reqIdentifier} extra: ${reqExtra}`)
         if (!isLoading && reqIdentifier === "REMOVE_INGREDIENT") {
             dispatch({ type: "DELETE", id: reqExtra });
         } else if (!isLoading && !error && reqIdentifier === "ADD_INGREDIENT") {
-            console.log('bang')
-            console.log(data, reqExtra)
             dispatch({
                 type: "ADD",
                 ingredient: { id: data.name, ...reqExtra },
@@ -65,7 +62,7 @@ const Ingredients = (props) => {
     const removeIngredientHandler = useCallback(
         (id) => {
             sendRequest(
-                `https://react-ingredientlist.firebaseio.com/ingredients/${id}.jon`,
+                `https://react-ingredientlist.firebaseio.com/ingredients/${id}.json`,
                 "DELETE",
                 null,
                 id,

@@ -54,7 +54,6 @@ const useHttp = () => {
                     return response.json();
                 })
                 .then((responseData) => {
-                    console.log(extra)
                     dispatchHttp({
                         type: "RESPONSE",
                         responseData: responseData,
@@ -78,7 +77,7 @@ const useHttp = () => {
         sendRequest: sendRequest,
         reqExtra: httpState.extra,
         reqIdentifier: httpState.identifier,
-        clear: clear
+        clear: clear,
     };
 };
 
