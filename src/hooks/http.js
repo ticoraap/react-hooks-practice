@@ -8,7 +8,10 @@ const initialState = {
     identifier: null,
 };
 
+// functionality 4.2 the reducer function
+// first argument is the current state, the action defines the changes to be made
 const httpReducer = (curHttpState, action) => {
+    // switch statment on action.type to return a new or updated HttpState object
     switch (action.type) {
         case "SEND":
             return {
@@ -35,8 +38,12 @@ const httpReducer = (curHttpState, action) => {
 };
 
 const useHttp = () => {
+    // functionality 4.1 useReducer hook
+    // return a state of the reducer and a method to use the reducer
     const [httpState, dispatchHttp] = useReducer(httpReducer, initialState);
 
+    // functionality 4.3 useCallback
+    // useCallBack returns a memoized 
     const clear = useCallback(() => dispatchHttp({ type: "CLEAR" }), []);
 
     const sendRequest = useCallback(
